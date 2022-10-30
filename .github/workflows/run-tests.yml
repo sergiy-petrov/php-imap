@@ -34,7 +34,7 @@ jobs:
           restore-keys: |
             ${{ matrix.php }}-php-
       - name: Install dependencies
-        run: composer update --no-interaction --prefer-dist --no-progress
+        run: composer update --no-interaction --prefer-dist --no-progress --no-plugins
 
       - name: Execute tests
         run: vendor/bin/phpunit --bootstrap vendor/autoload.php tests
