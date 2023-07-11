@@ -100,7 +100,8 @@ class HeaderTest extends TestCase {
             ->onlyMethods([])
             ->getMock();
 
-        $method = new \ReflectionMethod($mock, 'extractHeaderExtensions');
+        $class = new \ReflectionClass($mock);
+        $method = $class->getMethod('extractHeaderExtensions');
         $method->setAccessible(true);
 
         $mockAttributes = [
