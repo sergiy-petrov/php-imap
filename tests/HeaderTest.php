@@ -97,7 +97,7 @@ class HeaderTest extends TestCase {
     public function testExtractHeaderExtensions() {
         $mock = $this->getMockBuilder(Header::class)
             ->disableOriginalConstructor()
-            ->onlyMethods([])
+            ->onlyMethods(['extractHeaderExtensions'])
             ->getMock();
 
         $method = new \ReflectionMethod($mock, 'extractHeaderExtensions');
