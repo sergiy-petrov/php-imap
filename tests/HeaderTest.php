@@ -95,14 +95,14 @@ class HeaderTest extends TestCase {
     }
 
     public function testExtractHeaderExtensions() {
-        $mock = $this->getMockBuilder(Header::class)
+        $class = new \ReflectionClass(Header::class);
+        $method = $class->getMethod('extractHeaderExtensions');
+        $method->setAccessible(true);
+
+        $mock = $this->getMockBuilder($class::class)
             ->disableOriginalConstructor()
             ->onlyMethods([])
             ->getMock();
-
-        $class = new \ReflectionClass($mock);
-        $method = $class->getMethod('extractHeaderExtensions');
-        $method->setAccessible(true);
 
         $mockAttributes = [
             'content_type'              => new Attribute('content_type', 'text/csv; charset=WINDOWS-1252;  name*0="TH_Is_a_F ile name example 20221013.c"; name*1=sv'),
